@@ -1,16 +1,3 @@
-/* .contListCont {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
-
-
-
-ul {
-  padding: 0;
-}
-*/
 .contListCont {
   background-color: #111;
   padding: 20px;
