@@ -1,0 +1,59 @@
+/* .contListCont {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+
+
+ul {
+  padding: 0;
+}
+*/
+.contListCont {
+  background-color: #111;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.6);
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+}
+
+li {
+  margin-bottom: 15px;
+  padding: 10px 25px;
+  border: 1px solid #444;
+  border-radius: 5px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.contListText {
+  color: #fff;
+  font-size: 18px;
+  margin: 0;
+}
+
+.contactList__btn {
+  background-color: #00ff00;
+  color: #111;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 15px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  width: 150px;
+}
+
+.contactList__btn:active {
+  color: #fff;
+}
+
+button {
+  width: 250px;
+}
