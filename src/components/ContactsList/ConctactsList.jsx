@@ -19,10 +19,10 @@ export const ContactsList = ({ onDeleteContact, filtered, contacts }) => {
           </li>
         ))}
       </ul>
-      {!filtered.length && contacts.length && (
+      {filtered.length === 0 && contacts.length > 0 && (
         <p>No one found with that name</p>
       )}
-      {!contacts.length && (
+      {contacts.length === 0 && (
         <p>Please add contact by click on "Add conctact" button</p>
       )}
     </div>
