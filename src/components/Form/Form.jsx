@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import css from './Form.module.css';
+import PropTypes from 'prop-types';
 
-export class Form extends Component {
+class Form extends Component {
   state = {
     name: '',
     number: '',
@@ -60,3 +61,9 @@ export class Form extends Component {
     );
   }
 }
+
+export default Form;
+
+Form.propTypes = {
+  onSubmit: PropTypes.func,
+};

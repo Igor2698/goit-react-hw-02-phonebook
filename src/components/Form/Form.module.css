@@ -38,11 +38,11 @@
   }
 }
 
-input:focus {
+.input:focus {
   border-color: #19a911;
 }
 
-button {
+.buttonForm {
   font-size: 25px;
   padding: 10px 15px;
   background-color: #00ff00;
@@ -54,6 +54,6 @@ button {
   width: 320px;
 }
 
-button:hover {
+.buttonForm:hover {
   background-color: #0f0;
 }

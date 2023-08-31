@@ -1,9 +1,10 @@
 import css from './Filter.module.css';
+import PropTypes from 'prop-types';
 
-export const Filter = ({ value, onChange }) => {
+const Filter = ({ value, onChange }) => {
   return (
     <div className={css.centerContainer}>
-      <h2>Contacts</h2>
+      <h2 className={css.filterTitle}>Contacts</h2>
       <div className={css.contFilter}>
         <input
           className={css.filterInput}
@@ -13,8 +14,17 @@ export const Filter = ({ value, onChange }) => {
           value={value}
           onChange={onChange}
         />
-        <label htmlFor="filter">Find contact</label>
+        <label className={css.filterPlaceholder} htmlFor="filter">
+          Find contact
+        </label>
       </div>
     </div>
   );
+};
+
+export default Filter;
+
+Filter.propTypes = {
+  value: PropTypes.string.isRequired,
+  onChange: PropTypes.func,
 };

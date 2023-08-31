@@ -1,10 +1,11 @@
 import css from './ContactsList.module.css';
-export const ContactsList = ({ onDeleteContact, filtered, contacts }) => {
+import PropTypes from 'prop-types';
+const ContactsList = ({ onDeleteContact, filtered, contacts }) => {
   return (
     <div className={css.contListCont}>
-      <ul>
+      <ul className={css.contListList}>
         {filtered.map(({ id, name, number }) => (
-          <li key={id}>
+          <li key={id} className={css.contListItem}>
             <p className={css.contListText}>
               {name}: {number}
             </p>
@@ -27,4 +28,25 @@ export const ContactsList = ({ onDeleteContact, filtered, contacts }) => {
       )}
     </div>
   );
+};
+
+export default ContactsList;
+
+ContactsList.propTypes = {
+  filtered: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.string.isRequired,
+      name: PropTypes.string.isRequired,
+      number: PropTypes.string.isRequired,
+    })
+  ),
+
+  onDeleteContact: PropTypes.func.isRequired,
+  contacts: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.string.isRequired,
+      name: PropTypes.string.isRequired,
+      number: PropTypes.string.isRequired,
+    })
+  ),
 };
