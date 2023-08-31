@@ -18,15 +18,20 @@ display: flex;
 
 export const StyledField = styled(Field)`
 padding: 10px;
-border: 1px solid #ccc;
+border: 1px solid #00ff00;
 border-radius: 5px;
 transition: border-color 0.3s ease;
 width: 400px;
 
+
 @media screen and (max-width: 768px) {
-    & {
+     
       width: 250px;
-    }
+    
+  }
+
+  &:focus {
+    border-color: #00ff00; 
   }
 
 `;
@@ -74,6 +79,13 @@ export const ButtonForm = styled.button`
     cursor: pointer;
     transition: background-color 0.3s ease, color 0.3s ease;
     width: 320px;
+
+    @media screen and (max-width: 768px) {
+     
+      font-size: 18px;
+      width: 150px;
+    
+  }
 
 
     &:active {

@@ -22,7 +22,6 @@ const formSchema = Yup.object().shape({
 });
 
 const MyForm = ({ onSubmit }) => {
-  console.log();
   return (
     <Formik
       initialValues={{

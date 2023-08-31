@@ -8,7 +8,7 @@ box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.6);`
 
 
 export const ContListUl = styled.ul`  list-style: none;
-//     padding: 0;`
+ padding: 0;`
 
 export const ContListItem = styled.li`
 margin-bottom: 15px;
@@ -21,8 +21,16 @@ align-items: center;
 gap: 15px;`
 
 
-export const ContListText = styled.p`    color: #fff;
+export const ContListText = styled.p`    
+color: #fff;
 font-size: 18px;
+
+span.number {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
 margin: 0;
 @media screen and (max-width: 768px) {
     font-size: 14px;}
