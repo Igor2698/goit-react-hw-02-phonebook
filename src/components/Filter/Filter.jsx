@@ -1,24 +1,27 @@
-import css from './Filter.module.css';
 import PropTypes from 'prop-types';
+import {
+  CenterContainer,
+  FilterTitile,
+  ContFilter,
+  FilterInput,
+  FilterPlaceholder,
+} from './Filter.styled';
 
 const Filter = ({ value, onChange }) => {
   return (
-    <div className={css.centerContainer}>
-      <h2 className={css.filterTitle}>Contacts</h2>
-      <div className={css.contFilter}>
-        <input
-          className={css.filterInput}
+    <CenterContainer>
+      <FilterTitile>Contacts</FilterTitile>
+      <ContFilter>
+        <FilterInput
           placeholder=" "
           type="text"
           name="filter"
           value={value}
           onChange={onChange}
         />
-        <label className={css.filterPlaceholder} htmlFor="filter">
-          Find contact
-        </label>
-      </div>
-    </div>
+        <FilterPlaceholder htmlFor="filter">Find contact</FilterPlaceholder>
+      </ContFilter>
+    </CenterContainer>
   );
 };
 

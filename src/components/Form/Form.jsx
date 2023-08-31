@@ -1,69 +1,59 @@
 import React, { Component } from 'react';
-import css from './Form.module.css';
+// import css from './Form.module.css';
 import PropTypes from 'prop-types';
+import { Formik } from 'formik';
+import * as Yup from 'yup';
+import {
+  StyledForm,
+  Label,
+  StyledField,
+  ErrorMsg,
+  InputContainer,
+  ButtonForm,
+} from './Form.styled';
 
-class Form extends Component {
-  state = {
-    name: '',
-    number: '',
-  };
+const formSchema = Yup.object().shape({
+  name: Yup.string()
+    .matches(/^[a-zA-Z\s]+$/, 'Only letters are allowed')
+    .min(3, 'Too Short!')
+    .required('This field is required, please fill that'),
+  number: Yup.string()
+    .matches(/^\d{3}-\d{2}-\d{2}$/, 'Must be in format: 000-00-00')
+    .required('This field is required, please fill that'),
+});
 
-  handleChange = e => {
-    this.setState({ [e.target.name]: e.target.value });
-  };
+const MyForm = ({ onSubmit }) => {
+  console.log();
+  return (
+    <Formik
+      initialValues={{
+        name: '',
+        number: '',
+      }}
+      validationSchema={formSchema}
+      onSubmit={(values, actions) => {
+        onSubmit(values);
+        actions.resetForm();
+      }}
+    >
+      <StyledForm>
+        <InputContainer>
+          <StyledField type="text" name="name" placeholder=" " />
+          <Label htmlFor="name">Please enter name:</Label>
 
-  handleSubmit = e => {
-    e.preventDefault();
+          <ErrorMsg name="name" component="div" />
+        </InputContainer>
+        <InputContainer>
+          <StyledField type="tel" name="number" placeholder=" " />
+          <Label htmlFor="number">Please enter number:</Label>
 
-    this.props.onSubmit(this.state);
-    this.setState({ name: '', number: '' });
-  };
+          <ErrorMsg name="number" component="div" />
+        </InputContainer>
 
-  render() {
-    return (
-      <form onSubmit={this.handleSubmit} className={css.form}>
-        <div className={css.inputContainer}>
-          <input
-            value={this.state.name}
-            placeholder=" "
-            className={css.input}
-            onChange={this.handleChange}
-            type="text"
-            name="name"
-            pattern="^[a-zA-Zа-яА-Я]+(([' \-][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
-            title="Name may contain only letters, apostrophe, dash and spaces. For example Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan"
-            required
-          />
-          <label className={css.placeholder} htmlFor="name">
-            Please enter name
-          </label>
-        </div>
-        <div className={css.inputContainer}>
-          <input
-            value={this.state.number}
-            placeholder=" "
-            className={css.input}
-            onChange={this.handleChange}
-            type="tel"
-            name="number"
-            pattern="\+?\d{1,4}?[ .\-\s]?\(?\d{1,3}?\)?[ .\-\s]?\d{1,4}[ .\-\s]?\d{1,4}[ .\-\s]?\d{1,9}"
-            title="Phone number must be digits and can contain spaces, dashes, parentheses and can start with +"
-            required
-          />
-          <label className={css.placeholder} htmlFor="number">
-            Please enter number
-          </label>
-        </div>
-        <button className={css.buttonForm} type="submit">
-          Add contact
-        </button>
-      </form>
-    );
-  }
-}
-
-export default Form;
-
-Form.propTypes = {
-  onSubmit: PropTypes.func,
+        <ButtonForm type="submit">Add contact</ButtonForm>
+      </StyledForm>
+    </Formik>
+  );
 };
+
+export default MyForm;
