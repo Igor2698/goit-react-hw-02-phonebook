@@ -23,7 +23,11 @@ gap: 15px;`
 
 export const ContListText = styled.p`    color: #fff;
 font-size: 18px;
-margin: 0;`
+margin: 0;
+@media screen and (max-width: 768px) {
+    font-size: 14px;}
+
+`
 
 
 export const ContListBtn = styled.button`font-size: 18px;
@@ -34,24 +38,16 @@ padding: 5px;
 border-radius: 15px;
 cursor: pointer;
 transition: background-color 0.3s ease, color 0.3s ease;
-max-width: 80px;`
+max-width: 80px;
+&:active{color: #fff;}
+
+`
 
 
 
 
 
-  
-//   @media screen and (max-width: 768px) {
-//     .contListText {
-//       font-size: 14px;
-//     }
-//   }
-  
-//   .contactList__btn {
 
-//   }
-  
-//   .contactList__btn:active {
-//     color: #fff;
-//   }
-  
+
+
+
