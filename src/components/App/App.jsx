@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
 import { nanoid } from 'nanoid';
-import Form from './Form';
-import Section from './Section';
-import ContactsList from './ContactsList';
-import Filter from './Filter';
+import css from './App.module.css';
+import Form from '../Form';
+import Section from '../Section';
+import ContactsList from '../ContactsList';
+import Filter from '../Filter';
 
 export class App extends Component {
   state = {
@@ -17,8 +18,9 @@ export class App extends Component {
   };
 
   addContact = ({ name, number }) => {
+    const nameInLowerCase = name.toLowerCase();
     const existingContact = this.state.contacts.find(
-      contact => contact.name === name
+      contact => contact.name.toLowerCase() === nameInLowerCase
     );
 
     if (existingContact) {
@@ -68,9 +70,16 @@ export class App extends Component {
           <Filter value={filter} onChange={this.changeFilter} />
           <ContactsList
             filtered={visibleContacts}
-            contacts={contacts}
             onDeleteContact={this.deleteContact}
           />
+          {visibleContacts.length === 0 && contacts.length > 0 && (
+            <p className={css.warningText}>No one found with that name</p>
+          )}
+          {contacts.length === 0 && (
+            <p className={css.warningText}>
+              Please add contact by click on "Add conctact" button
+            </p>
+          )}
         </Section>
       </div>
     );

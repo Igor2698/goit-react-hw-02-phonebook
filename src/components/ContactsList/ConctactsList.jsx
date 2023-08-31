@@ -1,6 +1,6 @@
 import css from './ContactsList.module.css';
 import PropTypes from 'prop-types';
-const ContactsList = ({ onDeleteContact, filtered, contacts }) => {
+const ContactsList = ({ onDeleteContact, filtered }) => {
   return (
     <div className={css.contListCont}>
       <ul className={css.contListList}>
@@ -20,12 +20,6 @@ const ContactsList = ({ onDeleteContact, filtered, contacts }) => {
           </li>
         ))}
       </ul>
-      {filtered.length === 0 && contacts.length > 0 && (
-        <p>No one found with that name</p>
-      )}
-      {contacts.length === 0 && (
-        <p>Please add contact by click on "Add conctact" button</p>
-      )}
     </div>
   );
 };
