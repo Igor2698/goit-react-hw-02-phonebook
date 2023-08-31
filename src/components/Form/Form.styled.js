@@ -1,5 +1,5 @@
 import { Form, Field, ErrorMessage } from 'formik';
-import styled, { keyframes, css } from 'styled-components'
+import styled, { keyframes } from 'styled-components'
 
 const blinkingAnimation = keyframes`
   0% { color: #19a911; }
