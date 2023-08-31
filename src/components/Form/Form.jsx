@@ -1,5 +1,4 @@
-import React, { Component } from 'react';
-// import css from './Form.module.css';
+import React from 'react';
 import PropTypes from 'prop-types';
 import { Formik } from 'formik';
 import * as Yup from 'yup';
@@ -57,3 +56,7 @@ const MyForm = ({ onSubmit }) => {
 };
 
 export default MyForm;
+
+Form.propTypes = {
+  onSubmit: PropTypes.func,
+};
